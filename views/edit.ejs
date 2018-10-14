@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Edit Your Elephant Here:</h1>
+<br>
+<form action="/elephants/edit/<%= elephantData._id %>" method="post">
+    Elephant Name: <input type="text" name="name" value="<%= elephantData.name %>"><br> <br>
+    Elephant Description: <input type="text" name="description" value="<%= elephantData.description %>"><br>
+    <br> <input type='submit' value='Submit!'>
+</form>
+<div>
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <h3>Error message: </h3>
+        <% for (var x in errors) { %>
+         <h3><%= errors[x].message %></h3>
+        <% } %>
+    <% } %>
+</div><br>
+<a href= "/"> Back to Dashboard</a>
+
+</body>
+</html>

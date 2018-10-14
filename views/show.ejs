@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Elephants</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+            <h3>Here is the Elephant you selected:</h3>
+                <h4>Elephant Name: <%= elephantData.name %></h4>
+                <h4>Elephant Description: <%= elephantData.description %></h4>
+                <a href="/elephants/edit/<%= elephantData._id %>">Edit</a>
+                <form action="/elephants/destroy/<%= elephantData._id %>" method="post">
+                    <input type='submit' value='Delete This Elephant'>
+                </form>
+            <hr>
+        <a href="/">Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Elephants </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+
+        <% if(typeof(elephantData) != 'undefined' ) { %>
+            <h1>Welcome!</h1>
+            <h2> Elephant Dashboard</h2>
+            <hr>
+            <a href="/elephants">Create a new Elephant!</a>
+            <hr>
+
+            <% for (var x in elephantData) { %>
+                <a href="/elephants/<%= elephantData[x]._id %>"><h4>Elephant Name: <%= elephantData[x].name %></h4></a>
+                <a href="/elephants/edit/<%= elephantData[x]._id %>">Edit</a>
+                <form action="/elephants/destroy/<%= elephantData[x]._id %>" method="post">
+                    <input type='submit' value='Delete This Elephant'>
+                </form>
+            <hr>
+            <% } %>
+        <% } %>        
+    </div>
+
+    <div>
+        <% if(typeof(errors) != 'undefined' ) { %>
+            <h3>Error message: </h3>
+            <% for (var x in errors) { %>
+             <h3><%= errors[x].message %></h3>
+            <% } %>
+        <% } %>
+    </div>
+</body>
+</html>
